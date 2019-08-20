@@ -1,0 +1,123 @@
+/* 🐶 🐱 🐭 🐹 🐰 🐻 🐼 🐨 🐯 🦁 🐮 🐷 🐸 🐙 🐵 🦄 🐞 🦀 🐟 🐊 🐓 🦃 🐿 */
+
+body {
+    background: #CFD0CF;
+}
+
+header {
+    text-align: center;
+    line-height: 47 px;
+    font-family:  Arial, Helvetica, sans-serif;
+    text-decoration-color: #434344;
+    font-size: 42px;
+    margin: 40px 0;
+}
+
+.cards-wrapper {
+    height: 465px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 130px 130px 130px 130px;
+    grid-template-rows: 130px 130px 130px;
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
+    perspective: 600px;
+}
+
+.card {
+    transition: .6s;
+    transform-style: preserve-3d;
+}
+
+.front, .back {
+    height: 130px;
+    width: 130px;
+    border-radius: 9px;
+    border: 5px solid white;
+    backface-visibility: hidden;
+
+    /* Keep back side in the same place as front side */
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.front {
+    background: linear-gradient(45deg, #22AB93, #19668D);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.back {
+    transform: rotateY(180deg);
+    left: -10px;
+    background: white;
+    font-size: 7em;
+    text-align: center;
+}
+
+.timer {
+    margin: 0 auto;
+    font-size: 3em;
+    height: 32px;
+    width: 32px;
+}
+
+.overlay {
+    visibility: hidden;
+    position: fixed;
+    /* top: 0; bottom: 0; left: 0; right: 0; */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    z-index: 1; /* Sit on top */
+    margin: 0 auto;
+}
+
+.overlay__lose-popup,
+.overlay__win-popup {
+    display: none;
+    margin-top: -30px;
+    text-align: center;
+    font-size: 48px;
+    color: #434344;
+    font-weight: bold;
+}
+
+.overlay__overlay-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 500px; /* Could be more or less, depending on screen size */
+    height: 188px;
+}
+
+.overlay__game-end-button {
+    position: absolute;
+    left: 35%;
+    bottom: 30px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    background: linear-gradient(to left, #22AB93, #19668D);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.overlay__game-end-button:focus {outline:0;}
+
+.overlay__game-end-button:active {
+    box-shadow: -2px -1px 8px  rgba(0,0,0);
+}
+
+.overlay__game-end-button:not(:active){
+    box-shadow: 1px 1px 1px  rgba(0,0,0);
+}
